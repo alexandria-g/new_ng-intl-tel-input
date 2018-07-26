@@ -1,6 +1,6 @@
 # alexandria-g's fork of betsol-ng-intl-tel-input
 
-### This fork has been adapted for optional two-way binding, accessible in $scope.watch().
+### This fork has been adapted for optional two-way binding for Angular.js (`^1.3`), accessible in $scope.watch().
 
 This module for Angular.js (`^1.2.29`) provides integration
 for the great [intl-tel-input] jQuery plugin (version 7-8 are supported).
