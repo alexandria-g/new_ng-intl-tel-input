@@ -19,7 +19,7 @@ for the great [intl-tel-input] jQuery plugin (version 7-8 are supported).
     value="{{phoneNumber}}"
     id="mobileInput"
     intl-tel-input
-    intl-tel-input-options="{atch:true, ...}"
+    intl-tel-input-options="{watch:true, ...}"
 >
 ```
 
