@@ -21,7 +21,7 @@ https://github.com/betsol/ng-intl-tel-input
 
 ## Installation
 
-### Install integration library with `npm` or `Bower`
+### Install integration library within package.json
 
 - include the following in your package.json file:
 @todo
