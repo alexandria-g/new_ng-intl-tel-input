@@ -1,26 +1,19 @@
-# betsol-ng-intl-tel-input
+# alexandria-g's fork of betsol-ng-intl-tel-input
 
-[![npm version](https://badge.fury.io/js/betsol-ng-intl-tel-input.svg)](http://badge.fury.io/js/betsol-ng-intl-tel-input)
-[![Bower version](https://badge.fury.io/bo/betsol-ng-intl-tel-input.svg)](http://badge.fury.io/bo/betsol-ng-intl-tel-input)
-
+### This fork has been adapted for optional two-way binding, accessible in $scope.watch().
 
 This module for Angular.js (`^1.2.29`) provides integration
-for the great [intl-tel-input][intl-tel-input] jQuery plugin (version 7-8 are supported).
+for the great [intl-tel-input] jQuery plugin (version 7-8 are supported).
 
-Please feel free to investigate [the original plugin][intl-tel-input]
-for mode details, [features][intl-tel-input-features] and
-[configuration][intl-tel-input-options].
-
-> —» [DEMO][demo] «—
-
+For more information, view the OG fork:
+https://github.com/betsol/ng-intl-tel-input
 
 ## Installation
 
 ### Install integration library with `npm` or `Bower`
 
-- `npm i --save betsol-ng-intl-tel-input`
-
-- `bower install --save betsol-ng-intl-tel-input`
+- include the following in your package.json file:
+@todo
 
 
 ### Add integration library to your page
@@ -33,6 +26,11 @@ or manually using the code like this:
 ```
 
 You should use minified version (`betsol-ng-intl-tel-input.min.js`) in production.
+
+### Notes for Angular js users
+
+May need to also include the following scripts:
+@todo
 
 
 ### Add dependency in your application's module definition
@@ -49,15 +47,6 @@ var application = angular.module('application', [
 To add the plugin to any input field please use the `intl-tel-input` directive:
 
 `<input type="tel" ng-model="user.phoneNumber" intl-tel-input>`
-
-
-### Original plugin
-
-This module depends on [intl-tel-input][intl-tel-input] plugin to operate.
-If you installed the module using *npm* or *Bower*, then the dependency will be installed automatically,
-and if your are using some automated build tool, it will probably be added to your bundle.
-
-In other cases make sure to install it manually using the [following guide][intl-tel-input-install].
 
 
 ## Configuration
@@ -138,20 +127,6 @@ angular
 
 - `setCountry({string} countryCode)`
 
-### Phone number validator
-
-This directive will add `phoneNumber` validator to the underlying model controller.
-You can use it to display validation errors.
-
-#### Validation Example
-
-```
-<span ng-show="formName.inputName.$error.phoneNumber">
-    Please enter a correct phone number!
-</span>
-```
-
-
 ## Changelog
 
 Please see the [changelog][changelog] for list of changes.
@@ -169,11 +144,6 @@ link via [E-Mail][email]. I will be glad to help.
 Have any ideas or propositions? Feel free to contact me by [E-Mail][email].
 
 Cheers!
-
-
-## FAQ
-
-@todo
 
 
 ## Developer guide
@@ -223,16 +193,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-  [changelog]: CHANGELOG.md
-  [so-ask]:    http://stackoverflow.com/questions/ask?tags=angularjs,javascript
-  [email]:     mailto:s.fomin@betsol.ru
-  [new-issue]: https://github.com/betsol/ng-intl-tel-input/issues/new
-  [gulp]:      http://gulpjs.com/
-  [repo-gh]:   https://github.com/betsol/ng-intl-tel-input
-
-  [intl-tel-input]:          https://github.com/jackocnr/intl-tel-input
-  [intl-tel-input-features]: https://github.com/jackocnr/intl-tel-input#features
-  [intl-tel-input-options]:  https://github.com/jackocnr/intl-tel-input#options
-  [intl-tel-input-install]:  https://github.com/jackocnr/intl-tel-input#getting-started
-  [demo]:                    http://betsol.github.io/ng-intl-tel-input/
