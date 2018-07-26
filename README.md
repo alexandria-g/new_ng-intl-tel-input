@@ -5,6 +5,17 @@
 This module for Angular.js (`^1.2.29`) provides integration
 for the great [intl-tel-input] jQuery plugin (version 7-8 are supported).
 
+### Enabling two-way binding watch for Angular.js (^1.3)
+
+```html
+<input
+    type="tel"
+    ng-model="user.phoneNumber"
+    intl-tel-input
+    intl-tel-input-options="{ watch: true, ... }"
+>
+```
+
 For more information, view the OG fork:
 https://github.com/betsol/ng-intl-tel-input
 
