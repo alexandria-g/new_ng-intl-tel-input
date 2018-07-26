@@ -55,7 +55,7 @@ To add the plugin to any input field please use the `intl-tel-input` directive:
 
 You can configure the plugin by changing the global object `intlTelInputOptions`.
 This will apply specified changes across all plugin instances in your application.
-All configuration options could be found in the [original plugin documentation][intl-tel-input-options].
+All configuration options could be found in the [original plugin documentation].
 
 #### Global Configuration Example
 
@@ -129,19 +129,19 @@ angular
 
 ## Changelog
 
-Please see the [changelog][changelog] for list of changes.
+Please see the [changelog] for list of changes.
 
 
 ## Feedback
 
 If you have found a bug or have another issue with the library —
-please [create an issue][new-issue].
+please [create an issue].
 
 If you have a question regarding the library or it's integration with your project —
-consider asking a question at [StackOverflow][so-ask] and sending me a
-link via [E-Mail][email]. I will be glad to help.
+consider asking a question at [StackOverflow] and sending me a
+link via [E-Mail]. I will be glad to help.
 
-Have any ideas or propositions? Feel free to contact me by [E-Mail][email].
+Have any ideas or propositions? Feel free to contact me by [E-Mail].
 
 Cheers!
 
