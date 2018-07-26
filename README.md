@@ -36,7 +36,7 @@ https://github.com/betsol/ng-intl-tel-input
 ```
 "dependencies": {
     ...
-    "betsol-ng-intl-tel-input": "git://github.com/alexandria-g/ng-intl-tel-input.git#05323c5",
+    "betsol-ng-intl-tel-input": "git://github.com/alexandria-g/ng-intl-tel-input.git#COMMIT_ID",
     ...
   }
 ```
