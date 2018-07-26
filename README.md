@@ -31,25 +31,39 @@ https://github.com/betsol/ng-intl-tel-input
 
 ### Install integration library within package.json
 
-- include the following in your package.json file:
-@todo
+- Include the following in your package.json file:
 
+```
+"dependencies": {
+    ...
+    "betsol-ng-intl-tel-input": "git://github.com/alexandria-g/ng-intl-tel-input.git#05323c5",
+    ...
+  }
+```
 
-### Add integration library to your page
+### Add integration library to your page - for Angular js users
 
 Make sure, that module is added to your page either as a part of automatically built bundle
 or manually using the code like this:
 
+If you choose to manually include the scripts:
 ``` html
+<script src="../betsol-ng-intl-tel-input/node_modules/intl-tel-input/build/js/intlTelInput.min.js"></script>
+<script src="../betsol-ng-intl-tel-input/node_modules/intl-tel-input/build/js/utils.js"></script>
 <script src="../betsol-ng-intl-tel-input/dist/betsol-ng-intl-tel-input.js"></script>
+<script src="../betsol-ng-intl-tel-input/dist/css/intlTelInput.css"></script>
+
 ```
 
-You should use minified version (`betsol-ng-intl-tel-input.min.js`) in production.
+If you include the scripts using Vendor:
+```
+'node_modules/betsol-ng-intl-tel-input/node_modules/intl-tel-input/build/js/intlTelInput.min.js',
+'node_modules/betsol-ng-intl-tel-input/node_modules/intl-tel-input/build/js/utils.js',
+'node_modules/betsol-ng-intl-tel-input/dist/scripts/betsol-ng-intl-tel-input.js'   
+'node_modules/betsol-ng-intl-tel-input/dist/css/intlTelInput.css',
+```
 
-### Notes for Angular js users
-
-May need to also include the following scripts:
-@todo
+You should use minified version (`betsol-ng-intl-tel-input.min.js`) in production (Line 3 in above).
 
 
 ### Add dependency in your application's module definition
