@@ -13,13 +13,13 @@
   ],
   "dependencies": {
     "angular": "^1.2.29",
-    "intl-tel-input": "7.1.1 - 8.*"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/betsol/ng-intl-tel-input.git"
   },
   "keywords": [
+    "alexandria-g",
     "betsol",
     "angular",
     "angular.js",
@@ -31,6 +31,17 @@
     "form",
     "ng-model",
     "ngModel",
-    "form-control"
+    "form-control",
+    "two way",
+    "two-way",
+    "binding",
+    "watch",
+    "scope",
+    "$scope",
+    "$scope.watch",
+    "mobile",
+    "number",
+    "validation",
+    "validate"
   ]
 }
