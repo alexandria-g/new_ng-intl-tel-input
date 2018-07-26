@@ -1,16 +1,17 @@
 /**
- * betsol-ng-intl-tel-input - intl-tel-input integration for Angular.js
+ * alexandria's betsol-ng-intl-tel-input fork - intl-tel-input integration for Angular.js
  * @version v1.3.2
+ * @link https://github.com/alexandria-g/ng-intl-tel-input
  * @link https://github.com/betsol/ng-intl-tel-input
  * @license MIT
- *
+ * @author Alexandria Griffiths <alexandriagriffiths@yahoo.com.au>
  * @author Slava Fomin II <s.fomin@betsol.ru>
  */
 (function (angular) {
 
   'use strict';
 
-  var VALIDATOR_NAME = 'phoneNumber';
+  var VALIDATOR_NAME = 'fullphone';
 
   angular.module('betsol.intlTelInput', [])
 
@@ -64,29 +65,73 @@
           /**
            * Validating the input using plugin's API.
            */
-          if ('undefined' !== typeof modelCtrl.$validators) {
-            // Using newer `$validators` API.
-            modelCtrl.$validators[VALIDATOR_NAME] = function (modelValue, viewValue) {
-              if (!modelValue && !viewValue) {
-                return true;
+          if (options.watch){
+              //console.log('watch is true');
+            if ('undefined' !== typeof modelCtrl.$validators) {
+                // Using newer `$validators` API.
+                modelCtrl.$validators[VALIDATOR_NAME] = function (modelValue, viewValue) {
+                  if (!modelValue && !viewValue) {
+                    $element.removeClass('ng-invalid');
+                    $element.addClass('ng-valid');
+                    return true; //return true if empty
+                  }
+                  var isValid = callApi('isValidNumber');//isValidInput(modelValue);
+                  if (isValid){
+                    $element.addClass('ng-valid');
+                    $element.removeClass('ng-invalid');
+                  }
+                  else{
+                    $element.addClass('ng-invalid');
+                    $element.removeClass('ng-valid');
+                  }
+                  //modelCtrl.$setValidity(VALIDATOR_NAME, isValid);
+                  return true; //sets red, green
+                };
+              } else {
+                // Using legacy validation approach. //NOT NECESSARILY TWO-WAY BINDING
+                // This is required for Angular v1.2.x.
+                // @todo: deprecate this in the future!
+                var validateValue = function (value) {
+                  if (!value) {
+                    return value; //if empty
+                  }
+                  var isValid = isValidInput(value); //check valid T/F
+                  modelCtrl.$setValidity(VALIDATOR_NAME, isValid);
+                  return value;
+                };
+                modelCtrl.$parsers.push(validateValue);
+                modelCtrl.$formatters.push(validateValue);
               }
-              return isValidInput();
-            };
-          } else {
-            // Using legacy validation approach.
-            // This is required for Angular v1.2.x.
-            // @todo: deprecate this in the future!
-            var validateValue = function (value) {
-              if (!value) {
-                return value;
-              }
-              var isValid = isValidInput(value);
-              modelCtrl.$setValidity(VALIDATOR_NAME, isValid);
-              return value;
-            };
-            modelCtrl.$parsers.push(validateValue);
-            modelCtrl.$formatters.push(validateValue);
           }
+          else{
+              //console.log('watch is false');
+            if ('undefined' !== typeof modelCtrl.$validators) {
+                // Using newer `$validators` API.
+                modelCtrl.$validators[VALIDATOR_NAME] = function (modelValue, viewValue) {
+                  if (!modelValue && !viewValue) {
+                    return true; //return true if empty
+                  }
+                  var isValid = isValidInput(modelValue);
+                  modelCtrl.$setValidity(VALIDATOR_NAME, isValid);
+                  return isValid; //sets red, green
+                };
+              } else {
+                // Using legacy validation approach.
+                // This is required for Angular v1.2.x.
+                // @todo: deprecate this in the future!
+                var validateValue = function (value) {
+                  if (!value) {
+                    return value; //if empty
+                  }
+                  var isValid = isValidInput(value); //check valid T/F
+                  modelCtrl.$setValidity(VALIDATOR_NAME, isValid);
+                  return value;
+                };
+                modelCtrl.$parsers.push(validateValue);
+                modelCtrl.$formatters.push(validateValue);
+              }
+          }
+
 
           /**
            * Destroying the plugin with the directive.
@@ -106,6 +151,7 @@
           var $setViewValue = modelCtrl.$setViewValue;
           modelCtrl.$setViewValue = function () {
             arguments[0] = callApi('getNumber');
+            //console.log(arguments);
             $setViewValue.apply(modelCtrl, arguments);
           };
 
@@ -176,6 +222,9 @@
            * @returns {boolean}
            */
           function isValidInput (value) {
+              // if phone number is deleted / empty do not run phone number validation
+            if (('undefined' !== typeof value)) {
+
             var useWorkaround = ('undefined' !== typeof value);
             if (useWorkaround) {
               var previousValue = $element.val();
@@ -186,6 +235,10 @@
               $element.val(previousValue);
             }
             return result;
+
+            } else {
+                return true;
+            }
           }
 
         }
