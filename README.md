@@ -5,6 +5,9 @@
 This module for Angular.js (`^1.2.29`) provides integration
 for the great [intl-tel-input] jQuery plugin (version 7-8 are supported).
 
+For more information, view the OG fork:
+https://github.com/betsol/ng-intl-tel-input
+
 ### Enabling two-way binding watch for Angular.js (^1.3)
 
 
@@ -23,8 +26,6 @@ for the great [intl-tel-input] jQuery plugin (version 7-8 are supported).
 >
 ```
 
-For more information, view the OG fork:
-https://github.com/betsol/ng-intl-tel-input
 
 ## Installation
 
