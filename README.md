@@ -48,8 +48,8 @@ or manually using the code like this:
 
 If you choose to manually include the scripts:
 ``` html
-<script src="../betsol-ng-intl-tel-input/node_modules/intl-tel-input/build/js/intlTelInput.min.js"></script>
-<script src="../betsol-ng-intl-tel-input/node_modules/intl-tel-input/build/js/utils.js"></script>
+<script src="../betsol-ng-intl-tel-input/dependency/intl-tel-input/build/js/intlTelInput.min.js"></script>
+<script src="../betsol-ng-intl-tel-input/dependency/intl-tel-input/build/js/utils.js"></script>
 <script src="../betsol-ng-intl-tel-input/dist/betsol-ng-intl-tel-input.js"></script>
 <script src="../betsol-ng-intl-tel-input/dist/css/intlTelInput.css"></script>
 
@@ -57,8 +57,8 @@ If you choose to manually include the scripts:
 
 If you include the scripts using Vendor:
 ```
-'node_modules/betsol-ng-intl-tel-input/node_modules/intl-tel-input/build/js/intlTelInput.min.js',
-'node_modules/betsol-ng-intl-tel-input/node_modules/intl-tel-input/build/js/utils.js',
+'node_modules/betsol-ng-intl-tel-input/dependency/intl-tel-input/build/js/intlTelInput.min.js',
+'node_modules/betsol-ng-intl-tel-input/dependency/intl-tel-input/build/js/utils.js',
 'node_modules/betsol-ng-intl-tel-input/dist/scripts/betsol-ng-intl-tel-input.js'   
 'node_modules/betsol-ng-intl-tel-input/dist/css/intlTelInput.css',
 ```
