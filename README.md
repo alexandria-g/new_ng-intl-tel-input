@@ -7,12 +7,19 @@ for the great [intl-tel-input] jQuery plugin (version 7-8 are supported).
 
 ### Enabling two-way binding watch for Angular.js (^1.3)
 
+
 ```html
+<COMPONENT-NAME phone-number="user.fullphone" formatted-number="user.mobile" country-code="user.dialcode" valid-number="user.validphone"></COMPONENT-NAME>
+```
+
+```component template html
 <input
     type="tel"
-    ng-model="user.phoneNumber"
+    ng-model="phoneNumber"
+    value="{{phoneNumber}}"
+    id="mobileInput"
     intl-tel-input
-    intl-tel-input-options="{ watch: true, ... }"
+    intl-tel-input-options="{atch:true, ...}"
 >
 ```
 
