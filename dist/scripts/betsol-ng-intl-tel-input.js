@@ -63,15 +63,36 @@
 
           /**
            * Validating the input using plugin's API.
-           */
+           */          
           if ('undefined' !== typeof modelCtrl.$validators) {
-            // Using newer `$validators` API.
-            modelCtrl.$validators[VALIDATOR_NAME] = function (modelValue, viewValue) {
-              if (!modelValue && !viewValue) {
-                return true;
+            if (options.watch){
+              modelCtrl.$validators[VALIDATOR_NAME] = function (modelValue, viewValue) {
+                  if (!modelValue && !viewValue) {
+                    $element.removeClass('ng-invalid');
+                    $element.addClass('ng-valid');
+                    return true;
+                  }
+                  var isValid = callApi('isValidNumber');
+                  if (isValid){
+                    $element.addClass('ng-valid');
+                    $element.removeClass('ng-invalid');
+                  }
+                  else{
+                    $element.addClass('ng-invalid');
+                    $element.removeClass('ng-valid');
+                  }
+                  return true; //returns model value to two-way binding
               }
-              return isValidInput();
-            };
+            }
+            else{
+              // Using newer `$validators` API.
+              modelCtrl.$validators[VALIDATOR_NAME] = function (modelValue, viewValue) {
+                if (!modelValue && !viewValue) {
+                  return true;
+                }
+                return isValidInput();
+              };
+            }
           } else {
             // Using legacy validation approach.
             // This is required for Angular v1.2.x.
@@ -87,7 +108,7 @@
             modelCtrl.$parsers.push(validateValue);
             modelCtrl.$formatters.push(validateValue);
           }
-
+          
           /**
            * Destroying the plugin with the directive.
            */
