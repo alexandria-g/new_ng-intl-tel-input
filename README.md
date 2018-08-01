@@ -151,6 +151,18 @@ You can use it to display validation errors.
 </span>
 ```
 
+### Enabling two-way binding watch for Angular.js (^1.3)
+
+```component template html
+<input
+    type="tel"
+    ng-model="phoneNumber"
+    value="{{phoneNumber}}"
+    id="mobileInput"
+    intl-tel-input
+    intl-tel-input-options="{watch:true, ...}"
+>
+```
 
 ## Changelog
 
